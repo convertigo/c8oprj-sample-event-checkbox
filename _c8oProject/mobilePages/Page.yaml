@@ -1,5 +1,5 @@
 ↑isRoot: true
-comment: My First Page as root page
+comment: Checkboxes events
 preloadPriority: high
 scriptContent: 
   - xmlizable: 
@@ -9,6 +9,8 @@ scriptContent:
         /*Begin_c8o_PageImport*/
         /*End_c8o_PageImport*/
         /*Begin_c8o_PageDeclaration*/
+        	public masterCheck:boolean;
+        	public isIndeterminate:boolean = false;
         	/*End_c8o_PageDeclaration*/
         /*Begin_c8o_PageConstructor*/
         		/*End_c8o_PageConstructor*/
@@ -60,6 +62,171 @@ title: First page
   beanData: '{"ionBean":"Content"}'
   comment: Page content
   tagName: ion-content
+  ↓GenericItem [ngx.components.UIDynamicElement-1690811313838]: 
+    beanData: '{"ionBean":"GenericItem"}'
+    tagName: ion-item
+    ↓Label [ngx.components.UIDynamicElement-1690811313841]: 
+      beanData: '{"ionBean":"Label"}'
+      tagName: ion-label
+      ↓strong [ngx.components.UIElement-1690878791157]: 
+        tagName: strong
+        ↓some_text [ngx.components.UIText-1690811313844]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: source:{"filter":"Local","project":"event_checkbox","input":"","model":{"data":[{"localObject":"local"}],"path":"?.select_label","prefix":"","suffix":"","custom":"","useCustom":false}}
+    ↓CheckBox [ngx.components.UIDynamicElement-1690811313847]: 
+      beanData: |
+        '{
+         "ionBean": "CheckBox",
+         "ControlName": "plain",
+         "DoubleBinding": "script:masterCheck",
+         "Indeterminate": "script:isIndeterminate",
+         "SetPosition": "plain:start"
+        }'
+      identifier: select_all
+      tagName: ion-checkbox
+      ↓attr1 [ngx.components.UIControlEvent-1690811313856]: 
+        ↓checkMaster [ngx.components.UICustomAction-1690880318915]: 
+          actionValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+              - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                →: |
+                  '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                  		if(this.local.checkboxList !== undefined){
+                  			setTimeout(()=>{
+                  				this.local.checkboxList.forEach(obj => {
+                  					obj.isChecked = this["masterCheck"];
+                  				});
+                  				if(this["masterCheck"]){
+                  					page.local.select_label = page.local.checkboxList.length + " selected";
+                  				} else {
+                  					page.local.select_label = "Select all";
+                  				}
+                  			});
+                  		}
+                  		resolve();
+                  '
+      ↓ngModel [ngx.components.UIAttribute-1690884029610]: 
+        attrName: '[ngModel]'
+        attrValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:masterCheck
+        isEnabled: false
+      ↓ngModelChange [ngx.components.UIAttribute-1690884104231]: 
+        attrName: (ngModelChange)
+        attrValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:checkMaster($event)
+        isEnabled: false
+  ↓Break [ngx.components.UIDynamicElement-1690811353285]: 
+    beanData: '{"ionBean":"Break"}'
+    selfClose: true
+    tagName: br
+  ↓ListContainer [ngx.components.UIDynamicElement-1690878286177]: 
+    beanData: '{"ionBean":"List"}'
+    tagName: ion-list
+    ↓ListHeader [ngx.components.UIDynamicElement-1690878286162]: 
+      beanData: '{"ionBean":"Listheader"}'
+      tagName: ion-list-header
+      ↓Label [ngx.components.UIDynamicElement-1690878286164]: 
+        beanData: '{"ionBean":"Label"}'
+        tagName: ion-label
+        ↓Heading [ngx.components.UIDynamicTag-1690878286166]: 
+          beanData: '{"ionBean":"Heading"}'
+          tagName: h1
+          ↓some_text [ngx.components.UIText-1690878286168]: 
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:CONVERTIGO
+    ↓tag [ngx.components.UIControlDirective-1690810030425]: 
+      directiveIndexName: idx
+      directiveItemName: itm
+      directiveSource: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: source:{"filter":"Local","project":"event_checkbox","input":"","model":{"data":[{"localObject":"local"}],"path":"?.checkboxList","prefix":"","suffix":"","custom":"","useCustom":false}}
+      ↓GenericItem [ngx.components.UIDynamicElement-1690808179025]: 
+        beanData: '{"ionBean":"GenericItem"}'
+        tagName: ion-item
+        ↓Label [ngx.components.UIDynamicElement-1690808179022]: 
+          beanData: '{"ionBean":"Label"}'
+          tagName: ion-label
+          ↓some_text [ngx.components.UIText-1690808179024]: 
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: source:{"filter":"Iteration","project":"event_checkbox","input":"","model":{"data":[{"priority":1690810030425}],"path":"","prefix":"","suffix":"?.value","custom":"","useCustom":false}}
+        ↓CheckBox [ngx.components.UIDynamicElement-1690808190657]: 
+          beanData: |
+            '{
+             "ionBean": "CheckBox",
+             "ControlName": "plain",
+             "DoubleBinding": "source:{\"filter\":\"Iteration\",\"project\":\"event_checkbox\",\"input\":\"\",\"model\":{\"data\":[{\"priority\":1690810030425}],\"path\":\"\",\"prefix\":\"\",\"suffix\":\"?.isChecked\",\"custom\":\"\",\"useCustom\":false}}",
+             "SetPosition": "plain:start"
+            }'
+          tagName: ion-checkbox
+          ↓attr [ngx.components.UIControlEvent-1690808205072]: 
+            attrName: (ionChange)
+            eventName: ionChange
+            ↓Toast [ngx.components.UIDynamicAction-1690808231035]: 
+              beanData: |
+                '{
+                 "ionBean": "ToastAction",
+                 "message": "script:\"CHANGE! >>> \"+itm.value",
+                 "duration": "plain:1000",
+                 "position": "plain:top"
+                }'
+              tagName: Toast
+            ↓checkEvent [ngx.components.UICustomAction-1690880811756]: 
+              actionValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                      		const total_items = this.local.checkboxList.length;
+                      		//console.log(''>>>> total_items:'' + total_items);
+                      		console.log("ionChange: " + vars.name);
+                      		let checked = 0;
+                      		this.local.checkboxList.map(obj => {
+                      			//console.log(">>> value:"+obj.value);
+                      			//console.log(">>> isChecked:"+obj.isChecked);
+                      			if(obj.isChecked === true) checked++;
+                      		});
+                      		//console.log(">>> checked:"+checked);
+                      		page.local.select_label = checked + " selected";
+                      		if(checked > 0 && checked < total_items){
+                      			this["isIndeterminate"] = true;
+                      			this["masterCheck"] = false;
+                      		}else if(checked == total_items){
+                      			this["isIndeterminate"] = false;
+                      			this["masterCheck"] = true;
+                      		}else{
+                      			this["isIndeterminate"] = false;
+                      			this["masterCheck"] = false;
+                      			page.local.select_label = "Select all";
+                      		}
+                      		resolve();
+                      '
+              ↓name [ngx.components.UIControlVariable-1691414306364]: 
+                varValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: source:{"filter":"Iteration","project":"event_checkbox","input":"","model":{"data":[{"priority":1690810030425}],"path":"","prefix":"","suffix":"?.value","custom":"","useCustom":false}}
+          ↓attr1 [ngx.components.UIControlEvent-1690808212025]: 
+            ↓Toast [ngx.components.UIDynamicAction-1690808236463]: 
+              beanData: |
+                '{
+                 "ionBean": "ToastAction",
+                 "message": "script:\"CLICK! >>> \"+itm.value",
+                 "duration": "plain:1200"
+                }'
+              tagName: Toast
 ↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
   beanData: '{"ionBean":"Footer"}'
   comment: Page footer
@@ -89,3 +256,35 @@ title: First page
             - xmlizable: 
               - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
               - MobileSmartSourceType: plain:Action 2
+↓PageEvent [ngx.components.UIPageEvent-1690808879021]: 
+  ↓CallSequence [ngx.components.UIDynamicAction-1690878182932]: 
+    beanData: '{"ionBean":"CallSequenceAction","requestable":"plain:event_checkbox.getList"}'
+    tagName: CallSequence
+    ↓checkboxList [ngx.components.UIDynamicAction-1690879491127]: 
+      beanData: |
+        '{
+         "ionBean": "SetLocalAction",
+         "Property": "plain:checkboxList",
+         "Value": "source:{\"filter\":\"Sequence\",\"project\":\"event_checkbox\",\"input\":\"\",\"model\":{\"data\":[{\"sequence\":\"event_checkbox.getList\",\"marker\":\"\"}],\"path\":\"?.checkboxList\",\"prefix\":\"\",\"suffix\":\"\",\"custom\":\"\",\"useCustom\":false}}"
+        }'
+      tagName: checkboxList
+      ↓force_check_all [ngx.components.UICustomAction-1690906590670]: 
+        actionValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+              →: |
+                '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                		setTimeout(() => {
+                			page[''select_all''].el.click();
+                		})
+                		resolve();
+                '
+  ↓SetLocalSelectText [ngx.components.UIDynamicAction-1691412951055]: 
+    beanData: |
+      '{
+       "ionBean": "SetLocalAction",
+       "Property": "plain:select_label",
+       "Value": "script:\"Select All\""
+      }'
+    tagName: SetLocalSelectText
