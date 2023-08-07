@@ -1,5 +1,13 @@
 ↑isRoot: true
-comment: Checkboxes events
+comment: |
+  <h1>Checkboxes events</h1>
+  <ul>
+  <li>All checkboxes are checked when entering the page (<b>masterCheck</b> binding).</li>
+  <li>Each checkbox has a Click and Change events.</li>
+  <li>'Select all' master checkbox counts checked checkboxes.</li>
+  <li>Indeterminate master checkbox property is evaluated each time other checkboxes state change.</li>
+  </ul>
+  <img src="doc/c8oprj-sample-event-checkbox.gif">
 preloadPriority: high
 scriptContent: 
   - xmlizable: 

@@ -39,6 +39,13 @@ Describes the mobile application global properties
 
 ### ![](https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/pagecomponent_color_16x16.png?raw=true "PageComponent") Page
 
-Checkboxes events
+<h1>Checkboxes events</h1>
+<ul>
+<li>All checkboxes are checked when entering the page (<b>masterCheck</b> binding).</li>
+<li>Each checkbox has a Click and Change events.</li>
+<li>'Select all' master checkbox counts checked checkboxes.</li>
+<li>Indeterminate master checkbox property is evaluated each time other checkboxes state change.</li>
+</ul>
+<img src="doc/c8oprj-sample-event-checkbox.gif">
 </p></blockquote></details>
 </p></blockquote></details>

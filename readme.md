@@ -27,13 +27,13 @@ For more technical informations : [documentation](./project.md)
      <tr><td>To contribute</td><td>
 
      ```
-     event_checkbox=C:/Convertigo/Studio 8.2.1/workspace/event_checkbox/.git:branch=master
+     event_checkbox=https://github.com/convertigo/c8oprj-sample-event-checkbox.git:branch=master
      ```
      </td></tr>
      <tr><td>To simply use</td><td>
 
      ```
-     event_checkbox=C:/Convertigo/Studio 8.2.1/workspace/event_checkbox//archive/master.zip
+     event_checkbox=https://github.com/convertigo/c8oprj-sample-event-checkbox/archive/master.zip
      ```
      </td></tr>
     </table>
@@ -48,7 +48,14 @@ Describes the mobile application global properties
 
 #### Page
 
-Checkboxes events
+<h1>Checkboxes events</h1>
+<ul>
+<li>All checkboxes are checked when entering the page (<b>masterCheck</b> binding).</li>
+<li>Each checkbox has a Click and Change events.</li>
+<li>'Select all' master checkbox counts checked checkboxes.</li>
+<li>Indeterminate master checkbox property is evaluated each time other checkboxes state change.</li>
+</ul>
+<img src="doc/c8oprj-sample-event-checkbox.gif">
 
 
 
